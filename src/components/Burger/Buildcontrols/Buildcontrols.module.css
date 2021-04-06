@@ -1,0 +1,28 @@
+.BuildControls{
+    width:100%;
+    background-color:chocolate;
+    display:flex;
+    flex-flow:column;
+    align-items: center;
+    box-shadow: 0 2px 1px grey;
+    margin: auto;
+    padding: auto;
+}
+
+.BuildControls .Order {
+    background-color: yellow;
+    color: black;
+    font-size: 125%;
+}
+
+.BuildControls .Order:hover {
+    background-color: rgb(202, 214, 32);
+    color: black;
+    font-size: 125%;
+}
+
+.BuildControls .Order:active {
+    background-color: rgb(136, 255, 0);
+    color:black; 
+    font-size: 120%;   
+}
