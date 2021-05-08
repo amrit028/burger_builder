@@ -1,0 +1,7 @@
+.span{
+    display: inline-block;
+    text-transform: capitalize;
+    border : 1px solid #ccc;
+    margin : 0px 8px;
+    padding: 5px;
+}

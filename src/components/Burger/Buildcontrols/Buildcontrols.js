@@ -1,8 +1,8 @@
 import React from 'react';
-import Burgercontrol from './Buildcontrol/Buildcontrol';
+import Buildcontrol from './Buildcontrol/Buildcontrol';
 import classes from './Buildcontrols.module.css';
 
-const Burgercontrols = (props) => {
+const Buildcontrols = (props) => {
 
     const contents=[
         {label:'Salad',type:'salad'},
@@ -12,7 +12,7 @@ const Burgercontrols = (props) => {
     ]
 
     const ingredients=contents.map(val=>(
-        <Burgercontrol
+        <Buildcontrol
             key={val.type}
             label={val.label} 
             added={()=>props.addClick(val.type)}
@@ -21,6 +21,10 @@ const Burgercontrols = (props) => {
         /> 
     ));
 
+    for(let key in contents){
+        console.log("yes",props.count(contents[key].type));
+    } 
+
     return (
         <div className={classes.BuildControls}>
             <p><strong>Current Price: $ {props.price.toFixed(2)}</strong></p>
@@ -28,11 +32,11 @@ const Burgercontrols = (props) => {
             <br/>
             <button style={{margin:'0 0 20px 0'}}
                 className={classes.Order}
-                disabled={props.totalCount===0} 
+                disabled={props.totalCount===0 && props.isAuth} 
                 onClick={props.ordered}
-            >ORDER NOW</button>
+            >{props.isAuth?'ORDER NOW':'AUTHENTICATE TO CONTINUE'}</button>
         </div>
     );
 };
 
-export default Burgercontrols;
+export default Buildcontrols;

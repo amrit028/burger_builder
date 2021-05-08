@@ -4,10 +4,19 @@ import Navigationitem from './Navigationitem/Navigationitem';
 
 const Navigationitems=(props)=>{
 
+    console.log("IsAuth",props.isAuthenticated);
+
     return (
         <div className={classes.Navigationitems}>
-            <Navigationitem link="/" active>BURGER BUILDER</Navigationitem>
-            <Navigationitem link="/">CHECKOUT</Navigationitem>
+            <Navigationitem link="/" exact>BURGER BUILDER</Navigationitem>
+            {props.isAuthenticated
+                ? <Navigationitem link="/orders">ORDERS</Navigationitem>
+                : null
+            }
+            {props.isAuthenticated
+                ? <Navigationitem link="/logout">LOGOUT</Navigationitem>
+                : <Navigationitem link="/auth">AUTHENTICATE</Navigationitem>
+            }
         </div>
     );
 };
